@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import NavBar from './components/Navbar';
+import Filter from './components/Filter';
+import MovieList from './components/MovieList';
+import Add from './components/Add';
+import {movies} from './components/movies';
+import {useState} from 'react';
+
+//console.log(movies);
 function App() {
+const [movieList,setmovieList]=useState(movies)
+console.log(movieList);
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <div className="disp">
+      <Filter/>
+      </div>
+      <Add/> 
+      <div classeName="displ">
+      <MovieList movieList={movieList} />
+      </div>
     </div>
   );
 }
